@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjetilController : MonoBehaviour
 {
-    public float timeout = 10;
+    public float timeout = 5;
     public float speed;
     Rigidbody2D rb;
 

@@ -19,19 +19,27 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         gameOverText.gameObject.SetActive(false);
+        GameManager.Instance.youLose = false;
+        GameManager.Instance.youWin = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeToWin = Mathf.Clamp(timeToWin - Time.deltaTime, 0, 60);
-        timeToWinText.text = "Time Left to Jump: " + Mathf.CeilToInt(timeToWin);
-
-        if (timeToWin <= 0 && !gameOverText.gameObject.activeSelf)
+        if (GameManager.Instance.GetNumerodaFase() != 3)
         {
-            gameOverText.text = "You Escaped This Sector!";
-            gameOverText.gameObject.SetActive(true);
+            timeToWin = Mathf.Clamp(timeToWin - Time.deltaTime, 0, 60);
+            timeToWinText.text = "Time Left to Jump: " + Mathf.CeilToInt(timeToWin);
+
+            if (timeToWin <= 0 && !GameManager.Instance.youLose)
+            {
+                gameOverText.text = "You Escaped This Sector!";
+                gameOverText.gameObject.SetActive(true);
+                GameManager.Instance.youWin = true;
+            }
         }
+
+
     }
 
     private void FixedUpdate()
@@ -65,12 +73,13 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Se a nave colidir com um inimigo/obstaculo, destroi os 2
-        if (collision.CompareTag("Enemy") && !gameOverText.gameObject.activeSelf)
+        if ((collision.CompareTag("Enemy") || collision.CompareTag("Eshot")) && !gameOverText.gameObject.activeSelf)
         {
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
             gameOverText.text = "You Died!";
             gameOverText.gameObject.SetActive(true);
+            GameManager.Instance.youLose = true;
         }
     }
 }

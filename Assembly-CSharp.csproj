@@ -56,12 +56,20 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\ProjetilTipo1.cs" />
-    <Compile Include="Assets\Scripts\ProjetilController.cs" />
-    <Compile Include="Assets\Scripts\AsteroidsSpawn.cs" />
-    <Compile Include="Assets\Scripts\AsteroidController.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Enemy1Spawn.cs" />
+    <Compile Include="Assets\Scripts\Enemy1Controller.cs" />
+    <Compile Include="Assets\Scripts\ProjetilController.cs" />
+    <Compile Include="Assets\Scripts\ProjetilTipo1.cs" />
+    <Compile Include="Assets\Scripts\AsteroidController.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\AsteroidsSpawn.cs" />
+    <Compile Include="Assets\Scripts\Menu.cs" />
+    <Compile Include="Assets\Scripts\Enemy2Spawn.cs" />
+    <Compile Include="Assets\Scripts\Enemy2Controller.cs" />
+    <Compile Include="Assets\Scripts\BossController.cs" />
+    <Compile Include="Assets\Scripts\EshotsController.cs" />
+    <Compile Include="Assets\Scripts\EshotsSpawn.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\2D Space Kit\Backgrounds\Background Tip.txt" />
@@ -294,6 +302,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.14f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
@@ -732,6 +743,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{49454A00-72F6-DDE7-CD67-E3640E512F89}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

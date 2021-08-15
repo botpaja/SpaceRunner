@@ -6,7 +6,7 @@ public class AsteroidController : MonoBehaviour
 {
     public float speed;
     Rigidbody2D rb;
-    float timeOut = 10;
+    float timeOut = 5;
 
     // Start is called before the first frame update
     void Start()

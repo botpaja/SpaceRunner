@@ -853,3 +853,4 @@ MonoBehaviour:
   reloadTime: 0.5
   projetil: {fileID: 6040306480471568852, guid: a4c13374b53b12d4db30b4ede5de51fc, type: 3}
   origemProjetil: {fileID: 1174777327}
+  tipoArma: 0
